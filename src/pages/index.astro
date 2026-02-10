@@ -1,17 +1,26 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+        title="Senior Frontend Engineer"
+        description="Senior Frontend Engineer building high-performance, scalable web platforms."
+>
+    <h1 style="font-size: 34px; margin: 0 0 8px;">Senior Frontend Engineer</h1>
+    <p style="font-size: 18px; color: #374151; margin: 0;">
+        I build high-performance, scalable frontend systems with React, Angular and TypeScript.
+    </p>
+
+    <div style="margin-top: 22px; display: flex; gap: 10px;">
+        <a href="/profile" style="padding: 10px 14px; border: 1px solid #d1d5db; border-radius: 10px; text-decoration: none; color: inherit;">
+            View profile
+        </a>
+        <a href="/contact" style="padding: 10px 14px; border-radius: 10px; text-decoration: none; color: white; background: #111827;">
+            Contact
+        </a>
+    </div>
+
+    <div style="margin-top: 28px;">
+        <a href="/work">→ Selected work</a>
+    </div>
+</BaseLayout>

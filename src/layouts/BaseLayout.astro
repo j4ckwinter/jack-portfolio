@@ -1,0 +1,50 @@
+---
+type Props = {
+  title: string;
+  description?: string;
+};
+
+const { title, description } = Astro.props as Props;
+const siteName = "Jack Winter";
+const fullTitle = `${title} | ${siteName}`;
+const canonical = `https://jackwinter.vercel.app${Astro.url.pathname}`;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:title" content={fullTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:type" content="website" />
+</head>
+
+<body style="font-family: ui-sans-serif, system-ui; margin: 0;">
+<header style="border-bottom: 1px solid #e5e7eb;">
+    <div style="max-width: 760px; margin: 0 auto; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center;">
+        <a href="/" style="text-decoration: none; color: inherit; font-weight: 600;">Jack Winter</a>
+        <nav style="display: flex; gap: 14px; font-size: 14px;">
+            <a href="/profile">Profile</a>
+            <a href="/work">Work</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main style="max-width: 760px; margin: 0 auto; padding: 32px 20px;">
+    <slot />
+</main>
+
+<footer style="border-top: 1px solid #e5e7eb;">
+    <div style="max-width: 760px; margin: 0 auto; padding: 18px 20px; font-size: 14px; color: #6b7280;">
+        © {new Date().getFullYear()} Jack Winter
+    </div>
+</footer>
+</body>
+</html>
