@@ -19,6 +19,12 @@
       "recommended": true
     }
   },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+
   "javascript": {
     "formatter": {
       "quoteStyle": "double"
@@ -32,6 +38,7 @@
       }
     }
   },
+
   "overrides": [
     {
       "includes": ["**/*.astro"],
@@ -40,6 +47,9 @@
           "correctness": {
             "noUnusedVariables": "off",
             "noUnusedImports": "off"
+          },
+          "suspicious": {
+            "noRedeclare": "off"
           }
         }
       }

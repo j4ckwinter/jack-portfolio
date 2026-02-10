@@ -1,4 +1,7 @@
 ---
+import "../styles/global.css";
+import { nav } from "../lib/nav";
+
 type Props = {
   title: string;
   description?: string;
@@ -25,24 +28,28 @@ const canonical = `https://jackwinter.vercel.app${Astro.url.pathname}`;
     <meta property="og:type" content="website" />
 </head>
 
-<body style="font-family: ui-sans-serif, system-ui; margin: 0;">
-<header style="border-bottom: 1px solid #e5e7eb;">
-    <div style="max-width: 760px; margin: 0 auto; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center;">
-        <a href="/" style="text-decoration: none; color: inherit; font-weight: 600;">Jack Winter</a>
-        <nav style="display: flex; gap: 14px; font-size: 14px;">
-            <a href="/profile">Profile</a>
-            <a href="/work">Work</a>
-            <a href="/contact">Contact</a>
+<body class="font-sans m-0">
+<header class="border-b border-border">
+    <div class="max-w-content mx-auto py-4 px-5 flex justify-between items-center">
+        <a href="/" class="no-underline text-inherit font-semibold">Jack Winter</a>
+        <nav class="flex gap-3.5 text-sm">
+            {nav.map((item) => (
+                    <a href={item.href} class="hover:underline">
+                        {item.label}
+                    </a>
+            ))}
         </nav>
     </div>
 </header>
 
-<main style="max-width: 760px; margin: 0 auto; padding: 32px 20px;">
-    <slot />
+<main class="max-w-content mx-auto py-8 px-5">
+    <div class="space-y-8">
+        <slot />
+    </div>
 </main>
 
-<footer style="border-top: 1px solid #e5e7eb;">
-    <div style="max-width: 760px; margin: 0 auto; padding: 18px 20px; font-size: 14px; color: #6b7280;">
+<footer class="border-t border-border">
+    <div class="max-w-content mx-auto py-4 px-5 text-sm text-text-muted">
         © {new Date().getFullYear()} Jack Winter
     </div>
 </footer>
