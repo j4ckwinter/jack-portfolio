@@ -1,43 +1,61 @@
-# Astro Starter Kit: Minimal
+# Jack Winter — Personal Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Personal portfolio and profile site built with **Astro**, focused on performance, simplicity, and long-term maintainability.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Live at:  
+https://jackwinter.vercel.app
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## ✨ Overview
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+This site serves as my public professional profile:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- CV-style overview
+- Selected work and systems
+- Contact details
+- Future home for writing and case studies
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+The goal is to keep the site:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- fast
+- readable
+- low-maintenance
+- easy to extend over time
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
+## 🧱 Tech Stack
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- **Astro** — static-first framework
+- **TypeScript** — type safety
+- **Biome** — formatting and linting
+- **Vercel** — hosting and CI/CD
 
-## 👀 Want to learn more?
+Astro’s islands architecture keeps JavaScript to a minimum while allowing interactivity where needed.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+
+## 🌍 Deployment
+
+The project is deployed on **Vercel**.
+
+- Every push to `main` triggers a production deployment
+- Preview deployments are created automatically for pull requests
+
+---
+
+## 🔮 Future Improvements
+
+- Add writing / blog section (MDX)
+- Expand case studies with deeper technical breakdowns
+- Light interactive components using Astro islands
+- Custom domain
+
+---
+
+## 📬 Contact
+
+- Website: https://jackwinter.vercel.app
+- GitHub: https://github.com/j4ckwinter
+- LinkedIn: https://www.linkedin.com/in/jack-winter-409a09a4/
