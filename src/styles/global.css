@@ -4,7 +4,7 @@
   /* Semantic colours */
   --color-text: var(--color-gray-700);
   --color-text-muted: var(--color-gray-500);
-  --color-heading: var(--color-gray-900);
+  --color-title: var(--color-gray-900);
   --color-border: var(--color-gray-200);
   --color-border-strong: var(--color-gray-300);
   --color-primary: var(--color-gray-900);
