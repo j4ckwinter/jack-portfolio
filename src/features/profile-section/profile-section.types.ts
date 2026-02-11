@@ -1,4 +1,4 @@
 export interface ProfileSectionProps {
-	title: string;
-	isFirst?: boolean;
+  title: string;
+  isFirst?: boolean;
 }

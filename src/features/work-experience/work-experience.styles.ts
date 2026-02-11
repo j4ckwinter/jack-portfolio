@@ -1,10 +1,10 @@
 import { cva } from "class-variance-authority";
 
 export const workExperienceEntry = cva("text-text leading-body", {
-	variants: {
-		isLast: { true: "mb-0", false: "mb-6" },
-	},
-	defaultVariants: { isLast: false },
+  variants: {
+    isLast: { true: "mb-0", false: "mb-6" },
+  },
+  defaultVariants: { isLast: false },
 });
 
 export const workExperienceEntryHeader =
