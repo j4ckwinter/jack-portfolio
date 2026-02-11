@@ -1,0 +1,21 @@
+---
+import {
+	profileSectionDivider,
+	profileSectionDividerLine,
+	profileSectionHeading,
+	profileSectionHeadingFirst,
+} from "./profile-section.styles";
+import type { ProfileSectionProps } from "./profile-section.types";
+
+const { title, isFirst = false } = Astro.props as ProfileSectionProps;
+---
+
+{!isFirst && (
+	<div class={profileSectionDivider}>
+		<div class={profileSectionDividerLine} />
+	</div>
+)}
+<h2 class={isFirst ? profileSectionHeadingFirst : profileSectionHeading}>
+	{title}
+</h2>
+<slot />

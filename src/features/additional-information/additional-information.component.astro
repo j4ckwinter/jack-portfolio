@@ -1,0 +1,19 @@
+---
+import {
+  additionalInformationContent,
+  additionalInformationLabel,
+  additionalInformationList,
+} from "./additional-information.styles";
+import type { AdditionalInformationProps } from "./additional-information.types";
+
+const { items } = Astro.props as AdditionalInformationProps;
+---
+
+<dl class={additionalInformationList}>
+	{items.map((item) => (
+		<div>
+			<dt class={additionalInformationLabel}>{item.label}:</dt>
+			<dd class={additionalInformationContent}>{item.content}</dd>
+		</div>
+	))}
+</dl>

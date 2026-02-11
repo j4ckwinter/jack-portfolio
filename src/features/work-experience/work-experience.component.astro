@@ -1,0 +1,25 @@
+---
+import {
+  workExperienceEntry,
+  workExperienceEntryHeader,
+  workExperienceEntryList,
+  workExperienceEntryTagline,
+  workExperienceEntryTitle,
+} from "./work-experience.styles";
+import type { WorkExperienceEntryProps } from "./work-experience.types";
+
+const { entry, isLast = false } = Astro.props as WorkExperienceEntryProps;
+---
+
+<div class={workExperienceEntry({ isLast })}>
+	<div class={workExperienceEntryHeader}>
+		<div class={workExperienceEntryTitle}>{entry.title}</div>
+		<div class={workExperienceEntryTitle}>{entry.dateRange}</div>
+	</div>
+	<p class={workExperienceEntryTagline}>{entry.tagline}</p>
+	<ul class={workExperienceEntryList}>
+		{entry.bullets.map((bullet) => (
+			<li>{bullet}</li>
+		))}
+	</ul>
+</div>

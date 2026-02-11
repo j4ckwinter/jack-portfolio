@@ -1,6 +1,7 @@
 ---
-import "../styles/global.css";
-import { nav } from "../lib/nav";
+import "@/styles/global.css";
+import { nav } from "@/lib/nav";
+import { BASE_URL, SITE_NAME } from "@/lib/site.constants";
 
 type Props = {
   title: string;
@@ -8,9 +9,8 @@ type Props = {
 };
 
 const { title, description } = Astro.props as Props;
-const siteName = "Jack Winter";
-const fullTitle = `${title} | ${siteName}`;
-const canonical = `https://jackwinter.vercel.app${Astro.url.pathname}`;
+const fullTitle = `${title} | ${SITE_NAME}`;
+const canonical = `${BASE_URL}${Astro.url.pathname}`;
 ---
 
 <!doctype html>
@@ -31,7 +31,7 @@ const canonical = `https://jackwinter.vercel.app${Astro.url.pathname}`;
 <body class="font-sans m-0">
 <header class="border-b border-border">
     <div class="max-w-content mx-auto py-4 px-5 flex justify-between items-center">
-        <a href="/" class="no-underline text-inherit font-semibold">Jack Winter</a>
+        <a href="/" class="no-underline text-inherit font-semibold">{SITE_NAME}</a>
         <nav class="flex gap-3.5 text-sm">
             {nav.map((item) => (
                     <a href={item.href} class="hover:underline">
@@ -42,7 +42,7 @@ const canonical = `https://jackwinter.vercel.app${Astro.url.pathname}`;
     </div>
 </header>
 
-<main class="max-w-content mx-auto py-8 px-5">
+<main class="max-w-content mx-auto py-6 px-5">
     <div class="space-y-8">
         <slot />
     </div>
@@ -50,7 +50,7 @@ const canonical = `https://jackwinter.vercel.app${Astro.url.pathname}`;
 
 <footer class="border-t border-border">
     <div class="max-w-content mx-auto py-4 px-5 text-sm text-text-muted">
-        © {new Date().getFullYear()} Jack Winter
+        © {new Date().getFullYear()} {SITE_NAME}
     </div>
 </footer>
 </body>

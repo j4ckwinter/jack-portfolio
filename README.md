@@ -29,10 +29,27 @@ The goal is to keep the site:
 
 - **Astro** — static-first framework
 - **TypeScript** — type safety
+- **Tailwind CSS v4** — styling and design tokens
 - **Biome** — formatting and linting
 - **Vercel** — hosting and CI/CD
 
 Astro’s islands architecture keeps JavaScript to a minimum while allowing interactivity where needed.
+
+---
+
+## 📁 Project structure & conventions
+
+- **`src/layouts/`** — Base layout (meta, header, footer). Import with `@/layouts/...`.
+- **`src/pages/`** — One file per route. Use `BaseLayout` and keep page content in the slot.
+- **`src/features/`** — Feature modules: each feature (e.g. `profile/`) contains its components, data, and types. Import with `@/features/<feature>/...`.
+- **`src/lib/`** — Shared data and config: `nav`, `site.constants` (site name, base URL). Import with `@/lib/...`.
+- **`src/styles/`** — Global CSS and Tailwind theme (design tokens in `@theme`).
+
+**Imports:** Use the `@/` alias for `src/` (e.g. `@/layouts/BaseLayout.astro`, `@/lib/nav`).
+
+**Headings:** One `<h1>` per page (the page title). Use `<h2>` for sections (e.g. Core skills, Experience).
+
+**Copy and tokens:** Site name and canonical base URL live in `src/lib/site.constants.ts` so the layout and meta stay in sync.
 
 ---
 
