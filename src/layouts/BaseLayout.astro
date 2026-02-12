@@ -19,23 +19,23 @@ const currentPath = Astro.url.pathname;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<DocumentHead
-			fullTitle={fullTitle}
-			description={description}
-			canonical={canonical}
-		/>
-	</head>
+  <head>
+    <DocumentHead
+      fullTitle={fullTitle}
+      description={description}
+      canonical={canonical}
+    />
+  </head>
 
-	<body class={baseLayoutBody}>
-		<SiteHeader currentPath={currentPath} />
+  <body class={baseLayoutBody}>
+    <SiteHeader currentPath={currentPath} />
 
-		<main class={baseLayoutMain}>
-			<div class={baseLayoutMainInner}>
-				<slot />
-			</div>
-		</main>
+    <main class={baseLayoutMain}>
+      <div class={baseLayoutMainInner}>
+        <slot />
+      </div>
+    </main>
 
-		<SiteFooter />
-	</body>
+    <SiteFooter />
+  </body>
 </html>

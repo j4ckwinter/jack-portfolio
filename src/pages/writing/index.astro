@@ -15,18 +15,18 @@ const entries = allEntries.slice(0, WRITING_PAGE_SIZE);
 ---
 
 <BaseLayout
-	title="Writing"
-	description="Write-ups and notes on work, tickets, and experiments."
+  title="Writing"
+  description="Write-ups and notes on work, tickets, and experiments."
 >
-	<PageHeader title="Writing" />
-	<p class={writingLead}>
-		Notes and write ups of what I've been working on lately.
-	</p>
+  <PageHeader title="Writing" />
+  <p class={writingLead}>
+    Notes and write ups of what I've been working on lately.
+  </p>
 
-	<WritingList entries={entries} />
-	<PaginatedList
-		totalCount={totalCount}
-		pageSize={WRITING_PAGE_SIZE}
-		itemLabel="posts"
-	/>
+  <WritingList entries={entries} />
+  <PaginatedList
+    totalCount={totalCount}
+    pageSize={WRITING_PAGE_SIZE}
+    itemLabel="posts"
+  />
 </BaseLayout>

@@ -10,8 +10,10 @@ const {
 const hasMore = totalCount > pageSize;
 ---
 
-{hasMore && (
-	<p class={paginatedListCaption}>
-		Showing the most recent {pageSize} of {totalCount} {itemLabel}.
-	</p>
-)}
+{
+  hasMore && (
+    <p class={paginatedListCaption}>
+      Showing the most recent {pageSize} of {totalCount} {itemLabel}.
+    </p>
+  )
+}

@@ -10,10 +10,12 @@ const { items } = Astro.props as AdditionalInformationProps;
 ---
 
 <dl class={additionalInformationList}>
-	{items.map((item) => (
-		<div>
-			<dt class={additionalInformationLabel}>{item.label}:</dt>
-			<dd class={additionalInformationContent}>{item.content}</dd>
-		</div>
-	))}
+  {
+    items.map((item) => (
+      <div>
+        <dt class={additionalInformationLabel}>{item.label}:</dt>
+        <dd class={additionalInformationContent}>{item.content}</dd>
+      </div>
+    ))
+  }
 </dl>

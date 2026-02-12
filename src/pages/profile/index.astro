@@ -14,28 +14,33 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { profileSummaryText } from "./profile.styles";
 ---
 
-<BaseLayout title="Profile" description="CV-style profile, skills, and experience.">
-	<PageHeader title="Profile" />
-	<div class="profile-content">
-		<ProfileSection title="Summary" isFirst>
-			<p class={profileSummaryText}>{profileSummary}</p>
-		</ProfileSection>
+<BaseLayout
+  title="Profile"
+  description="CV-style profile, skills, and experience."
+>
+  <PageHeader title="Profile" />
+  <div class="profile-content">
+    <ProfileSection title="Summary" isFirst>
+      <p class={profileSummaryText}>{profileSummary}</p>
+    </ProfileSection>
 
-		<ProfileSection title="Work experience">
-			{workExperience.map((entry, index) => (
-				<WorkExperienceEntry
-					entry={entry}
-					isLast={index === workExperience.length - 1}
-				/>
-			))}
-		</ProfileSection>
+    <ProfileSection title="Work experience">
+      {
+        workExperience.map((entry, index) => (
+          <WorkExperienceEntry
+            entry={entry}
+            isLast={index === workExperience.length - 1}
+          />
+        ))
+      }
+    </ProfileSection>
 
-		<ProfileSection title="Education">
-			<Education education={education} />
-		</ProfileSection>
+    <ProfileSection title="Education">
+      <Education education={education} />
+    </ProfileSection>
 
-		<ProfileSection title="Additional information">
-			<AdditionalInformation items={additionalInfo} />
-		</ProfileSection>
-	</div>
+    <ProfileSection title="Additional information">
+      <AdditionalInformation items={additionalInfo} />
+    </ProfileSection>
+  </div>
 </BaseLayout>

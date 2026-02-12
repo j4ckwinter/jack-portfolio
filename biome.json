@@ -1,44 +1,16 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.3.14/schema.json",
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
-  },
-  "files": {
-    "ignoreUnknown": false
-  },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "space",
-    "indentWidth": 2
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true
-    }
-  },
-  "css": {
-    "parser": {
-      "tailwindDirectives": true
-    }
-  },
-
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "double"
-    }
-  },
+  "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+  "files": { "ignoreUnknown": false },
+  "formatter": { "enabled": true, "indentStyle": "space", "indentWidth": 2 },
+  "linter": { "enabled": true, "rules": { "recommended": true } },
+  "css": { "parser": { "tailwindDirectives": true } },
+  "html": { "experimentalFullSupportEnabled": true },
+  "javascript": { "formatter": { "quoteStyle": "double" } },
   "assist": {
     "enabled": true,
-    "actions": {
-      "source": {
-        "organizeImports": "on"
-      }
-    }
+    "actions": { "source": { "organizeImports": "on" } }
   },
-
   "overrides": [
     {
       "includes": ["**/*.astro"],
@@ -48,9 +20,7 @@
             "noUnusedVariables": "off",
             "noUnusedImports": "off"
           },
-          "suspicious": {
-            "noRedeclare": "off"
-          }
+          "suspicious": { "noRedeclare": "off" }
         }
       }
     }
