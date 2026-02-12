@@ -1,26 +1,37 @@
 ---
+import PageHeader from "@/features/page-header/page-header.component.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import {
+  indexActionGroup,
+  indexButton,
+  indexHeroLead,
+  indexSectionLink,
+  indexSectionLinkAnchor,
+} from "./index.styles";
 ---
 
 <BaseLayout
-    title="Senior Frontend Engineer"
-    description="Senior Frontend Engineer building high-performance, scalable web platforms."
+	title="Senior Frontend Engineer"
+	description="Senior Frontend Engineer building high-performance, scalable web platforms."
 >
-    <h1 class="text-display mb-2">Senior Frontend Engineer</h1>
-    <p class="text-lg text-text m-0 leading-body">
-        I build high-performance, scalable frontend systems with React, Angular and TypeScript.
-    </p>
+	<PageHeader title="Senior Frontend Engineer" />
+	<p class={indexHeroLead}>
+		I build high-performance, scalable frontend systems with React, Angular
+		and TypeScript.
+	</p>
 
-    <div class="mt-content-gap flex gap-2.5">
-        <a href="/profile" class="py-2.5 px-3.5 border border-border-strong rounded-button no-underline text-inherit">
-            View profile
-        </a>
-        <a href="/contact" class="py-2.5 px-3.5 rounded-button no-underline text-white bg-primary">
-            Contact
-        </a>
-    </div>
+	<div class={indexActionGroup}>
+		<a href="/profile" class={indexButton({ tone: "secondary" })}>
+			View profile
+		</a>
+		<a href="/contact" class={indexButton({ tone: "primary" })}>
+			Contact
+		</a>
+	</div>
 
-    <div class="mt-section">
-        <a href="/work">→ Selected work</a>
-    </div>
+	<div class={indexSectionLink}>
+		<a href="/writing" class={indexSectionLinkAnchor}>
+			→ Cool, fun things I've been working on
+		</a>
+	</div>
 </BaseLayout>

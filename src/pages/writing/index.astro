@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import PageHeader from "@/features/page-header/page-header.component.astro";
+import PaginatedList from "@/features/paginated-list/paginated-list.component.astro";
+import WritingList from "@/features/writing-list/writing-list.component.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { WRITING_PAGE_SIZE } from "./writing.constants";
+import { writingLead } from "./writing.styles";
+
+const allEntries = (await getCollection("writing")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const totalCount = allEntries.length;
+const entries = allEntries.slice(0, WRITING_PAGE_SIZE);
+---
+
+<BaseLayout
+	title="Writing"
+	description="Write-ups and notes on work, tickets, and experiments."
+>
+	<PageHeader title="Writing" />
+	<p class={writingLead}>
+		Notes and write ups of what I've been working on lately.
+	</p>
+
+	<WritingList entries={entries} />
+	<PaginatedList
+		totalCount={totalCount}
+		pageSize={WRITING_PAGE_SIZE}
+		itemLabel="posts"
+	/>
+</BaseLayout>

@@ -1,0 +1,8 @@
+---
+import { pageHeaderTitle } from "./page-header.styles";
+import type { PageHeaderProps } from "./page-header.types";
+
+const { title } = Astro.props as PageHeaderProps;
+---
+
+<h1 class={pageHeaderTitle}>{title}</h1>

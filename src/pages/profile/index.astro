@@ -3,6 +3,7 @@ import AdditionalInformation from "@/features/additional-information/additional-
 import { additionalInfo } from "@/features/additional-information/additional-information.constants";
 import Education from "@/features/education/education.component.astro";
 import { education } from "@/features/education/education.constants";
+import PageHeader from "@/features/page-header/page-header.component.astro";
 import ProfileSection from "@/features/profile-section/profile-section.component.astro";
 import WorkExperienceEntry from "@/features/work-experience/work-experience.component.astro";
 import {
@@ -14,18 +15,19 @@ import { profileSummaryText } from "./profile.styles";
 ---
 
 <BaseLayout title="Profile" description="CV-style profile, skills, and experience.">
+	<PageHeader title="Profile" />
 	<div class="profile-content">
 		<ProfileSection title="Summary" isFirst>
 			<p class={profileSummaryText}>{profileSummary}</p>
 		</ProfileSection>
 
 		<ProfileSection title="Work experience">
-		{workExperience.map((entry, index) => (
-			<WorkExperienceEntry
-				entry={entry}
-				isLast={index === workExperience.length - 1}
-			/>
-		))}
+			{workExperience.map((entry, index) => (
+				<WorkExperienceEntry
+					entry={entry}
+					isLast={index === workExperience.length - 1}
+				/>
+			))}
 		</ProfileSection>
 
 		<ProfileSection title="Education">

@@ -1,0 +1,32 @@
+---
+import { nav } from "@/lib/nav";
+import { SITE_NAME } from "@/lib/site.constants";
+import {
+  siteHeader,
+  siteHeaderInner,
+  siteHeaderLogoLink,
+  siteHeaderNav,
+  siteHeaderNavLink,
+} from "./site-header.styles";
+import type { SiteHeaderProps } from "./site-header.types";
+
+const { currentPath } = Astro.props as SiteHeaderProps;
+---
+
+<header class={siteHeader}>
+	<div class={siteHeaderInner}>
+		<a href="/" class={siteHeaderLogoLink}>{SITE_NAME}</a>
+		<nav class={siteHeaderNav}>
+			{nav.map((item) => (
+				<a
+					href={item.href}
+					class={siteHeaderNavLink({
+						isCurrent: currentPath === item.href,
+					})}
+				>
+					{item.label}
+				</a>
+			))}
+		</nav>
+	</div>
+</header>

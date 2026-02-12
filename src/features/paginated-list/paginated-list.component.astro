@@ -1,0 +1,17 @@
+---
+import { paginatedListCaption } from "./paginated-list.styles";
+import type { PaginatedListProps } from "./paginated-list.types";
+
+const {
+  totalCount,
+  pageSize,
+  itemLabel = "items",
+} = Astro.props as PaginatedListProps;
+const hasMore = totalCount > pageSize;
+---
+
+{hasMore && (
+	<p class={paginatedListCaption}>
+		Showing the most recent {pageSize} of {totalCount} {itemLabel}.
+	</p>
+)}

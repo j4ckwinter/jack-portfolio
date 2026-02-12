@@ -1,0 +1,16 @@
+---
+import type { DocumentHeadProps } from "./document-head.types";
+
+const { fullTitle, description, canonical } = Astro.props as DocumentHeadProps;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{fullTitle}</title>
+{description && <meta name="description" content={description} />}
+
+<link rel="canonical" href={canonical} />
+
+<meta property="og:title" content={fullTitle} />
+{description && <meta property="og:description" content={description} />}
+<meta property="og:type" content="website" />

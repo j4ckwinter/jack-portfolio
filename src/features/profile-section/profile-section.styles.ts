@@ -1,5 +1,5 @@
 const profileSectionHeadingBase =
-  "text-section font-semibold text-title mb-1 mt-0 uppercase";
+  "text-section font-semibold text-title mb-1 mt-0 capitalize";
 
 export const profileSectionHeadingFirst = profileSectionHeadingBase;
 export const profileSectionHeading = profileSectionHeadingBase;

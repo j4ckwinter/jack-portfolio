@@ -1,57 +1,41 @@
 ---
 import "@/styles/global.css";
-import { nav } from "@/lib/nav";
+import DocumentHead from "@/features/document-head/document-head.component.astro";
+import SiteFooter from "@/features/site-footer/site-footer.component.astro";
+import SiteHeader from "@/features/site-header/site-header.component.astro";
 import { BASE_URL, SITE_NAME } from "@/lib/site.constants";
+import {
+  baseLayoutBody,
+  baseLayoutMain,
+  baseLayoutMainInner,
+} from "./BaseLayout.styles";
+import type { BaseLayoutProps } from "./BaseLayout.types";
 
-type Props = {
-  title: string;
-  description?: string;
-};
-
-const { title, description } = Astro.props as Props;
+const { title, description } = Astro.props as BaseLayoutProps;
 const fullTitle = `${title} | ${SITE_NAME}`;
 const canonical = `${BASE_URL}${Astro.url.pathname}`;
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{fullTitle}</title>
-    {description && <meta name="description" content={description} />}
+	<head>
+		<DocumentHead
+			fullTitle={fullTitle}
+			description={description}
+			canonical={canonical}
+		/>
+	</head>
 
-    <link rel="canonical" href={canonical} />
+	<body class={baseLayoutBody}>
+		<SiteHeader currentPath={currentPath} />
 
-    <meta property="og:title" content={fullTitle} />
-    {description && <meta property="og:description" content={description} />}
-    <meta property="og:type" content="website" />
-</head>
+		<main class={baseLayoutMain}>
+			<div class={baseLayoutMainInner}>
+				<slot />
+			</div>
+		</main>
 
-<body class="font-sans m-0">
-<header class="border-b border-border">
-    <div class="max-w-content mx-auto py-4 px-5 flex justify-between items-center">
-        <a href="/" class="no-underline text-inherit font-semibold">{SITE_NAME}</a>
-        <nav class="flex gap-3.5 text-sm">
-            {nav.map((item) => (
-                    <a href={item.href} class="hover:underline">
-                        {item.label}
-                    </a>
-            ))}
-        </nav>
-    </div>
-</header>
-
-<main class="max-w-content mx-auto py-6 px-5">
-    <div class="space-y-8">
-        <slot />
-    </div>
-</main>
-
-<footer class="border-t border-border">
-    <div class="max-w-content mx-auto py-4 px-5 text-sm text-text-muted">
-        © {new Date().getFullYear()} {SITE_NAME}
-    </div>
-</footer>
-</body>
+		<SiteFooter />
+	</body>
 </html>
